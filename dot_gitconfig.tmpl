@@ -4,13 +4,13 @@
 	email = {{ .email }}
 {{ else }}
 	email = duckientruong@gmail.com
-{{ end -}}
+{{- end }}
 [merge]
 {{- if (index . "mergetool") }}
 	tool = {{ .mergetool }}
 {{ else }}
 	tool = kdiff3
-{{ end -}}
+{{- end }}
 	conflictstyle = diff3
 [diff]
 {{- if (index . "mergetool") }}
