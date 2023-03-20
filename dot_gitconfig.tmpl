@@ -1,7 +1,7 @@
 [user]
 	name = Kien Truong
-{{- if hasPrefix "sotatek" .chezmoi.hostname }}
-	email = kien.truong@sotatek.com
+{{- if .email }}
+	email = {{ .email }}
 {{ else }}
 	email = duckientruong@gmail.com
 {{ end -}}
