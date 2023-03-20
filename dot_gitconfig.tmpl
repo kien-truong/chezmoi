@@ -6,10 +6,18 @@
 	email = duckientruong@gmail.com
 {{ end -}}
 [merge]
+{{- if (index . "mergetool") }}
+	tool = {{ .mergetool }}
+{{ else }}
 	tool = kdiff3
+{{ end -}}
 	conflictstyle = diff3
 [diff]
+{{- if (index . "mergetool") }}
+	tool = {{ .mergetool }}
+{{ else }}
 	tool = kdiff3
+{{ end -}}
 [color]
 	ui = true
 [push]
