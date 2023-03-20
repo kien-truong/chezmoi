@@ -1,6 +1,6 @@
 [user]
 	name = Kien Truong
-{{- if .email }}
+{{- if (index . "email") }}
 	email = {{ .email }}
 {{ else }}
 	email = duckientruong@gmail.com
