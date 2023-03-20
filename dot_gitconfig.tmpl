@@ -8,7 +8,7 @@
 [merge]
 {{- if (index . "mergetool") }}
 	tool = {{ .mergetool }}
-{{ else }}
+{{- else }}
 	tool = kdiff3
 {{- end }}
 	conflictstyle = diff3
