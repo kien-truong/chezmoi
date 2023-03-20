@@ -1,0 +1,4 @@
+[".vim/pack/themes/opt/solarized8"]
+    type = "git-repo"
+    url = "https://github.com/lifepillar/vim-solarized8.git"
+    refreshPeriod = "168h"
