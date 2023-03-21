@@ -1,0 +1,4 @@
+# Default data value for templating
+name = "Kien Truong"
+email = "duckientruong@gmail.com"
+mergetool = "kdiff3"
