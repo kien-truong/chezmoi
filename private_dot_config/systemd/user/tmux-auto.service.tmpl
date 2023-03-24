@@ -1,0 +1,21 @@
+[Unit]
+Description=tmux default session (detached)
+Documentation=man:tmux(1)
+
+[Service]
+Type=forking
+Environment=DISPLAY=:0
+{{- if (index . "tmux_window_name") }}
+ExecStart=/usr/bin/tmux new-session -d -s {{ .tmux_window_name | quote }}
+{{- else }}
+ExecStart=/usr/bin/tmux new-session -d -s {{ .chezmoi.hostname | quote }}
+{{- end }}
+
+ExecStop=/home/kien-truong/.tmux/plugins/tmux-resurrect/scripts/save.sh quiet
+ExecStop=/usr/bin/tmux kill-server
+KillMode=control-group
+
+RestartSec=2
+
+[Install]
+WantedBy=default.target
