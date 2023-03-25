@@ -1,7 +1,9 @@
 {
 	"segments": {
 		"left": [
-
+			{
+				"function": "powerline.segments.common.net.hostname"
+			}
 		],
 		"right": [
 			{
@@ -22,9 +24,6 @@
 					"format": "%H:%M",
 					"istime": true
 				}
-			},
-			{
-				"function": "powerline.segments.common.net.hostname"
 			}
 		]
 	}
