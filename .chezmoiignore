@@ -1,5 +1,5 @@
 README.md
 
-{{- if ne .chezmoi.osRelease.idLike "debian" }}
+{{- if ne (dig "chezmoi" "osRelease" "idLike" "other" .) "debian" }}
 .vim/plugin
 {{- end }}
