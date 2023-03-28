@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# tmux-save.service hash: {{ include (joinPath .chezmoi.homeDir ".config/systemd/user/tmux-save.service") | sha256sum }}
+# Add service hash here to trigger auto reload based on service file
+# Examles: (remember to remove /**/ from template block)
+# <name>.service hash: {{/* include (joinPath .chezmoi.homeDir ".config/systemd/user/<name>.service") | sha256sum */}}
 
 # Reload systemd user daemon
 systemctl --user daemon-reload
