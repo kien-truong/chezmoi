@@ -1,4 +1,5 @@
 README.md
+.pre-commit-config.yaml
 
 {{- if ne (dig "chezmoi" "osRelease" "idLike" "other" .) "debian" }}
 .vim/plugin
