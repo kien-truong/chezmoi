@@ -1,2 +1,5 @@
 # Ignore all files created by JetBrain IDE
 .idea
+
+# Ignore jupyter notebook checkpoints
+.ipynb_checkpoints
