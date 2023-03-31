@@ -1,5 +1,8 @@
-# Ignore all files created by JetBrain IDE
-.idea
+# Exclude JetBrain IDE project files
+.idea/
 
-# Ignore jupyter notebook checkpoints
-.ipynb_checkpoints
+# Exclude Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Exclude VSCode local config files
+.vscode/
