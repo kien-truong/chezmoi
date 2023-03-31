@@ -6,3 +6,6 @@
 
 # Exclude VSCode local config files
 .vscode/
+
+# Exclude Python cache directories
+__pycache__/
