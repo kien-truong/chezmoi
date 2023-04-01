@@ -1,0 +1,77 @@
+# zshrc extensions
+# This file will be load in ~/.zprezto/runcoms/zshrc
+
+# Keychain
+if command -v keychain > /dev/null ; then
+    SSH_KEYS=($(ls "$HOME/.ssh" | grep "id_" | grep -v "pub"))
+    eval "$(keychain --eval --quiet $SSH_KEYS)"
+fi
+
+# Aliases
+alias -g 'S!'='>& /dev/null &!'
+# Useful function to fix ssh agent forwarding
+function fixssh() { eval $(tmux show-env -s |grep '^SSH_') }
+# Useful function to clear zprezto auto-complete cache
+function compcache_clear() {
+    rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}/prezto/zcompdump"
+}
+
+# Setup pkgfile command-not-found hook
+[ -s /usr/share/doc/pkgfile/command-not-found.zsh ] && . /usr/share/doc/pkgfile/command-not-found.zsh
+
+# Setup dir_colors
+[ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
+
+# Setup SDKMAN
+export SDKMAN_DIR="$HOME/.local/apps/sdkman"
+[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && . "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+# Setup NVM
+export NVM_DIR="$HOME/.local/apps/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Setup Mambaforge
+# Adapted from 'conda init' output to use relative path, so as to improve system-compatiblity
+export MAMBA_DIR="$HOME/.local/apps/mambaforge"
+if [ -d "$MAMBA_DIR" ]; then
+    __conda_setup="$("$MAMBA_DIR/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "$MAMBA_DIR/etc/profile.d/conda.sh" ]; then
+            . "$MAMBA_DIR/etc/profile.d/conda.sh"
+        else
+            export PATH="$MAMBA_DIR/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+
+    if [ -f "$MAMBA_DIR/etc/profile.d/mamba.sh" ]; then
+        . "$MAMBA_DIR/etc/profile.d/mamba.sh"
+    fi
+fi
+
+# Setup PHPENV
+export PHPENV_ROOT="$HOME/.local/apps/phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+    export PATH="${PHPENV_ROOT}/bin:${PATH}"
+    eval "$(phpenv init -)"
+fi
+
+# Setup completion for terraform
+if [ -f /usr/bin/terraform ]; then
+    autoload -U +X bashcompinit && bashcompinit
+    complete -o nospace -C /usr/bin/terraform terraform
+fi
+
+# Setup completion for pipx
+PIPX_PATH=$(command -v pipx)
+if [[ $? == 0 ]]; then
+    REAL_PIPX_PATH=$(realpath "$PIPX_PATH")
+    PIPX_BIN_DIR=$(dirname "$REAL_PIPX_PATH")
+    ARG_COMPLETE_BIN="$PIPX_BIN_DIR/register-python-argcomplete"
+    if [[ -f "$ARG_COMPLETE_BIN" ]]; then
+        eval "$($ARG_COMPLETE_BIN pipx)"
+    fi
+fi

@@ -1,0 +1,22 @@
+# zshrc extensions
+# This file will be load in ~/.zprezto/runcoms/zprofile
+
+# for go tooling installation
+export GOPATH="$HOME/.local/golang"
+path=(
+  $GOPATH/bin
+  $path
+)
+
+{{ if eq .chezmoi.osRelease.id "arch" }}
+# Input env var
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+# SSH env var
+export SSH_ASKPASS="/usr/bin/ksshaskpass"
+
+# DIFFPROG for pacdiff
+export DIFFPROG="/usr/bin/kdiff3"
+{{ end }}
