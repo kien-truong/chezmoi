@@ -1,6 +1,26 @@
 # zshrc extensions
 # This file will be load in ~/.zprezto/runcoms/zprofile
 
+# Custom functions search path
+fpath=(
+  $HOME/.zfunc
+  $HOME/.zfunc/*
+  $fpath
+)
+
+export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config"
+
+# For detection of session type
+export SESSION_TYPE="local"
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  export SESSION_TYPE="ssh"
+# many other tests omitted
+else
+  case $(ps -o comm= -p "$PPID") in
+    sshd|*/sshd) export SESSION_TYPE="ssh";;
+  esac
+fi
+
 # for go tooling installation
 export GOPATH="$HOME/.local/golang"
 path=(
