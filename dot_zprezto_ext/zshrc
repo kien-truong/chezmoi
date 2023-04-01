@@ -17,19 +17,19 @@ function compcache_clear() {
 }
 
 # Setup pkgfile command-not-found hook
-[ -s /usr/share/doc/pkgfile/command-not-found.zsh ] && . /usr/share/doc/pkgfile/command-not-found.zsh
+[ -s /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # Setup dir_colors
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
 # Setup SDKMAN
 export SDKMAN_DIR="$HOME/.local/apps/sdkman"
-[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && . "$SDKMAN_DIR/bin/sdkman-init.sh"
+[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # Setup NVM
 export NVM_DIR="$HOME/.local/apps/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Setup Mambaforge
 # Adapted from 'conda init' output to use relative path, so as to improve system-compatiblity
@@ -40,7 +40,7 @@ if [ -d "$MAMBA_DIR" ]; then
         eval "$__conda_setup"
     else
         if [ -f "$MAMBA_DIR/etc/profile.d/conda.sh" ]; then
-            . "$MAMBA_DIR/etc/profile.d/conda.sh"
+            source "$MAMBA_DIR/etc/profile.d/conda.sh"
         else
             export PATH="$MAMBA_DIR/bin:$PATH"
         fi
@@ -48,7 +48,7 @@ if [ -d "$MAMBA_DIR" ]; then
     unset __conda_setup
 
     if [ -f "$MAMBA_DIR/etc/profile.d/mamba.sh" ]; then
-        . "$MAMBA_DIR/etc/profile.d/mamba.sh"
+        source "$MAMBA_DIR/etc/profile.d/mamba.sh"
     fi
 fi
 
