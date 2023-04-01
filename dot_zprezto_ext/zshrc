@@ -60,9 +60,10 @@ if [ -d "${PHPENV_ROOT}" ]; then
 fi
 
 # Setup completion for terraform
-if [ -f /usr/bin/terraform ]; then
+TERRAFORM_PATH=$(command -v terraform)
+if [[ $? == 0 ]]; then
     autoload -U +X bashcompinit && bashcompinit
-    complete -o nospace -C /usr/bin/terraform terraform
+    complete -o nospace -C "$TERRAFORM_PATH" terraform
 fi
 
 # Setup completion for pipx
