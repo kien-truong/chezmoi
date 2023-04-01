@@ -1,5 +1,5 @@
 # zshrc extensions
-# This file will be load in ~/.zprezto/runcoms/zshrc
+# This file will be loaded in ~/.zprezto/runcoms/zshrc
 
 # Keychain
 if command -v keychain > /dev/null ; then
