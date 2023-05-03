@@ -76,3 +76,9 @@ if [[ $? == 0 ]]; then
         eval "$($ARG_COMPLETE_BIN pipx)"
     fi
 fi
+
+# Setup completion for kubectl
+KUBECTL_PATH=$(command -v kubectl)
+if [[ $? == 0 ]]; then
+    source <("$KUBECTL_PATH" completion zsh)
+fi
