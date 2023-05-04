@@ -273,7 +273,7 @@ let g:powerline_pycmd="py3"
 " Add global python site-packages so powerline is usable inside virtualenv
 {{- range .python_site_package_dirs }}
 {{- if stat (.) }}
-python3 import sys;sys.path.append('{{ . }}')
+python3 import sys;sys.path.append({{ . | quote }})
 {{- end }}
 {{- end }}
 
