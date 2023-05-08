@@ -92,5 +92,5 @@ fi
 KUBE_PS1_DIR=$HOME/.zprezto_ext/kube-ps1
 if [ -s "$KUBE_PS1_DIR/kube-ps1.sh" ]; then
     source "$KUBE_PS1_DIR/kube-ps1.sh"
-    RPROMPT='$(kube_ps1)'$RPROMPT
+    PROMPT='$(kube_ps1)'$PROMPT
 fi
