@@ -81,3 +81,9 @@ KUBESWITCH_DIR=$HOME/.local/apps/kubeswitch/current
 # Setup asdf
 ASDF_DIR=$HOME/.local/apps/asdf
 [ -s "$ASDF_DIR/asdf.sh" ] && source "$ASDF_DIR/asdf.sh"
+
+# Setup zoxide
+ZOXIDE_PATH=$(command -v zoxide)
+if [[ $? == 0 ]]; then
+    eval "$($ZOXIDE_PATH init zsh)"
+fi
