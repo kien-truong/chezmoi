@@ -32,9 +32,3 @@
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-yank.git"
     refreshPeriod = "168h"
-
-
-[".zprezto_ext/kube-ps1"]
-    type = "git-repo"
-    url = "https://github.com/jonmosco/kube-ps1.git"
-    refreshPeriod = "168h"

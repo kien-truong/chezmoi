@@ -88,9 +88,5 @@ if [[ $? == 0 ]]; then
     eval "$($ZOXIDE_PATH init zsh)"
 fi
 
-# Setup kube-ps1
-KUBE_PS1_DIR=$HOME/.zprezto_ext/kube-ps1
-if [ -s "$KUBE_PS1_DIR/kube-ps1.sh" ]; then
-    source "$KUBE_PS1_DIR/kube-ps1.sh"
-    PROMPT='$(kube_ps1)'$PROMPT
-fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
