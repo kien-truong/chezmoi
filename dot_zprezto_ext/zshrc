@@ -22,15 +22,6 @@ function compcache_clear() {
 # Setup dir_colors
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
-# Setup SDKMAN
-export SDKMAN_DIR="$HOME/.local/apps/sdkman"
-[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-
-# Setup NVM
-export NVM_DIR="$HOME/.local/apps/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Setup Mambaforge
 # Adapted from 'conda init' output to use relative path, so as to improve system-compatiblity
 export MAMBA_DIR="$HOME/.local/apps/mambaforge"
@@ -85,4 +76,8 @@ fi
 
 # Setup kubeswitch
 KUBESWITCH_DIR=$HOME/.local/apps/kubeswitch/current
-[ -s $KUBESWITCH_DIR/switch.sh ] && source "$KUBESWITCH_DIR/switch.sh"
+[ -s "$KUBESWITCH_DIR/switch.sh" ] && source "$KUBESWITCH_DIR/switch.sh"
+
+# Setup asdf
+ASDF_DIR=$HOME/.local/apps/asdf
+[ -s "$ASDF_DIR/asdf.sh" ] && source "$ASDF_DIR/asdf.sh"
