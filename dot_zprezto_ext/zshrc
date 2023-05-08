@@ -82,3 +82,7 @@ KUBECTL_PATH=$(command -v kubectl)
 if [[ $? == 0 ]]; then
     source <("$KUBECTL_PATH" completion zsh)
 fi
+
+# Setup kubeswitch
+KUBESWITCH_DIR=$HOME/.local/apps/kubeswitch/current
+[ -s $KUBESWITCH_DIR/switch.sh ] && source "$KUBESWITCH_DIR/switch.sh"

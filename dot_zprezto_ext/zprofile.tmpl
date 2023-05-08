@@ -8,10 +8,6 @@ fpath=(
   $fpath
 )
 
-if [ -z "${KUBECONFIG}" ]; then
-  export KUBECONFIG="$HOME/.kube/config"
-fi
-
 # For detection of session type
 export SESSION_TYPE="local"
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
