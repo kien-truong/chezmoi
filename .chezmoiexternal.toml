@@ -32,8 +32,3 @@
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-yank.git"
     refreshPeriod = "168h"
-
-[".zprezto_ext/zsh-autocomplete"]
-    type = "git-repo"
-    url = "https://github.com/marlonrichert/zsh-autocomplete.git"
-    refreshPeriod = "168h"

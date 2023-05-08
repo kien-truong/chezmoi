@@ -3,6 +3,3 @@
 
 # Alias ls first, because zprezto also add many aliases for ls
 alias ls="ls -v"
-
-# shellcheck disable=1091
-source "${ZDOTDIR:-$HOME}/.zprezto_ext/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
