@@ -3,7 +3,7 @@
     url = "https://github.com/lifepillar/vim-solarized8.git"
     refreshPeriod = "168h"
 
-[".zfunc/conda-zsh-completion"]
+[".zprezto_ext/zfunc/conda-zsh-completion"]
     type = "git-repo"
     url = "https://github.com/conda-incubator/conda-zsh-completion.git"
     refreshPeriod = "168h"
