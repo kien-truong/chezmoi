@@ -1,12 +1,13 @@
-# jdk
+# Java related tools
 java temurin-17.0.7+7
-# mvnd provides both maven and mvnd binary
-mvnd 0.9.0
-# base sbt version
 sbt 1.8.2
+## mvnd provides both maven and mvnd binary
+mvnd 0.9.0
+
 # node js
 nodejs 18.16.0
-# terraform
+
+# terraform related tools
 terraform 1.4.6
-# tflint
 tflint 0.46.1
+infracost 0.10.21
