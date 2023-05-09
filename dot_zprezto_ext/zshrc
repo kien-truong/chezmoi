@@ -22,6 +22,10 @@ function compcache_clear() {
 # Setup dir_colors
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
+# Load asdf early, so asdf's tools can be used for auto-completion
+ASDF_DIR=$HOME/.local/apps/asdf
+[ -s "$ASDF_DIR/asdf.sh" ] && source "$ASDF_DIR/asdf.sh"
+
 # Setup Mambaforge
 # Adapted from 'conda init' output to use relative path, so as to improve system-compatiblity
 export MAMBA_DIR="$HOME/.local/apps/mambaforge"
@@ -77,10 +81,6 @@ fi
 # Setup kubeswitch
 KUBESWITCH_DIR=$HOME/.local/apps/kubeswitch/current
 [ -s "$KUBESWITCH_DIR/switch.sh" ] && source "$KUBESWITCH_DIR/switch.sh"
-
-# Setup asdf
-ASDF_DIR=$HOME/.local/apps/asdf
-[ -s "$ASDF_DIR/asdf.sh" ] && source "$ASDF_DIR/asdf.sh"
 
 # Setup zoxide
 ZOXIDE_PATH=$(command -v zoxide)

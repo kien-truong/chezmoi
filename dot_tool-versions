@@ -6,3 +6,5 @@ mvnd 0.9.0
 sbt 1.8.2
 # node js
 nodejs 18.16.0
+# terraform
+terraform 1.4.6
