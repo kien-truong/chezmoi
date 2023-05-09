@@ -8,3 +8,5 @@ sbt 1.8.2
 nodejs 18.16.0
 # terraform
 terraform 1.4.6
+# tflint
+tflint 0.46.1
