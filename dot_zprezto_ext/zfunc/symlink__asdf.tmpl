@@ -1,1 +1,4 @@
-{{ .chezmoi.homeDir }}/.local/apps/asdf/completions/_asdf
+{{ $source_path := printf "%s/%s" .chezmoi.homeDir ".local/apps/asdf/completions/_asdf" }}
+{{- if stat ($source_path) }}
+{{ $source_path }}
+{{- end }}
