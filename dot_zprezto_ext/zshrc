@@ -87,6 +87,7 @@ ZOXIDE_PATH=$(command -v zoxide)
 if [[ $? == 0 ]]; then
     eval "$($ZOXIDE_PATH init zsh)"
 fi
+
 # Setup direnv
 DIRENV_PATH=$(command -v direnv)
 if [[ $? == 0 ]]; then
