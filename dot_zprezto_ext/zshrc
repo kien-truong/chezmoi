@@ -22,9 +22,12 @@ function compcache_clear() {
 # Setup dir_colors
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
-# Load asdf early, so asdf's tools can be used for auto-completion
-ASDF_DIR=$HOME/.local/apps/asdf
-[ -s "$ASDF_DIR/asdf.sh" ] && source "$ASDF_DIR/asdf.sh"
+# Load rtx early, so rtx's tools can be used for auto-completion
+export RTX_DATA_DIR="$HOME/.local/apps/rtx"
+RTX_PATH=$(command -v rtx)
+if [[ $? == 0 ]]; then
+    eval "$($RTX_PATH activate zsh)"
+fi
 
 # Setup Mambaforge
 # Adapted from 'conda init' output to use relative path, so as to improve system-compatiblity
