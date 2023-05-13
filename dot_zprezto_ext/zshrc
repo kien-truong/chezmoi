@@ -49,15 +49,14 @@ if [ -d "${PHPENV_ROOT}" ]; then
 fi
 
 # Setup completion for terraform
-TERRAFORM_PATH=$(command -v terraform | rtx which terraform)
-if [[ $? == 0 ]]; then
+if TERRAFORM_PATH=$(command -v terraform | rtx which terraform) ; then
     autoload -U +X bashcompinit && bashcompinit
     complete -o nospace -C "$TERRAFORM_PATH" terraform
 fi
 
 # Setup completion for pipx
-PIPX_PATH=$(command -v pipx)
-if [[ $? == 0 ]]; then
+
+if PIPX_PATH=$(command -v pipx) ; then
     REAL_PIPX_PATH=$(realpath "$PIPX_PATH")
     PIPX_BIN_DIR=$(dirname "$REAL_PIPX_PATH")
     ARG_COMPLETE_BIN="$PIPX_BIN_DIR/register-python-argcomplete"
