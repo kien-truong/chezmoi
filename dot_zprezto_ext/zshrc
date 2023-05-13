@@ -16,9 +16,6 @@ function compcache_clear() {
     rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}/prezto/zcompdump"
 }
 
-# Setup pkgfile command-not-found hook
-[ -s /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
-
 # Setup dir_colors
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
