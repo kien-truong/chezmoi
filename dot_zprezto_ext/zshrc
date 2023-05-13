@@ -49,7 +49,7 @@ if [ -d "${PHPENV_ROOT}" ]; then
 fi
 
 # Setup completion for terraform
-if TERRAFORM_PATH=$(command -v terraform | rtx which terraform) ; then
+if TERRAFORM_PATH=$(rtx which terraform | command -v terraform) ; then
     autoload -U +X bashcompinit && bashcompinit
     complete -o nospace -C "$TERRAFORM_PATH" terraform
 fi
