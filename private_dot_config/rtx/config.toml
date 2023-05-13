@@ -2,7 +2,7 @@
 # global tool versions go here
 # you can set these with `rtx use -g`
 node = ['18', '16']
-java = ['temurin-11', 'temurin-17']
+java = ['temurin-17', 'temurin-11']
 sbt = ['1.8']
 mvnd = ['0.9']
 terraform = ['1.4']
