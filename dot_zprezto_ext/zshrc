@@ -1,11 +1,6 @@
+# shellcheck shell=bash
 # zshrc extensions
 # This file will be loaded in ~/.zprezto/runcoms/zshrc
-
-# Keychain
-if command -v keychain > /dev/null ; then
-    SSH_KEYS=($(ls "$HOME/.ssh" | grep "id_" | grep -v "pub"))
-    eval "$(keychain --eval --quiet $SSH_KEYS)"
-fi
 
 # Aliases
 alias -g 'S!'='>& /dev/null &!'
