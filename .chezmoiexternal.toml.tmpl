@@ -3,11 +3,6 @@
     url = "https://github.com/lifepillar/vim-solarized8.git"
     refreshPeriod = "168h"
 
-[".zprezto_ext/zfunc/conda-zsh-completion"]
-    type = "git-repo"
-    url = "https://github.com/conda-incubator/conda-zsh-completion.git"
-    refreshPeriod = "168h"
-
 [".tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm.git"
@@ -32,3 +27,10 @@
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-yank.git"
     refreshPeriod = "168h"
+
+{{ if or (lookPath "conda") (lookPath "mamba") }}
+[".zprezto_ext/zfunc/conda-zsh-completion"]
+    type = "git-repo"
+    url = "https://github.com/conda-incubator/conda-zsh-completion.git"
+    refreshPeriod = "168h"
+{{ end }}
