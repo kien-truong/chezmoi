@@ -1,13 +1,25 @@
 # shellcheck shell=bash
 # pre-prezto initialization
 
-# Keychain
+# Load ssh keys with keychain
 if command -v keychain > /dev/null ; then
-    SSH_KEYS=($(ls "$HOME/.ssh" | grep "id_" | grep -v "pub"))
-    eval "$(keychain --eval --quiet $SSH_KEYS)"
+  SSH_KEYS=()
+  for f in "$HOME/.ssh"/*
+  do
+    file_name=$(basename "$f")
+    case $file_name in
+      id_*)
+        if [[ ! $file_name == *.pub ]]; then
+          echo "$file_name"
+          SSH_KEYS+=("$file_name")
+        fi
+        ;;
+    esac
+  done
+  eval "$(keychain --eval --quiet "${SSH_KEYS[@]}")"
 fi
 
-# shellcheck disable=SC2296
+# shellcheck disable=SC2296,SC1090
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
