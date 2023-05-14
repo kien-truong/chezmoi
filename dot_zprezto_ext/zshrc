@@ -4,8 +4,10 @@
 
 # Aliases
 alias -g 'S!'='>& /dev/null &!'
+
 # Useful function to fix ssh agent forwarding
 function fixssh() { eval $(tmux show-env -s |grep '^SSH_') }
+
 # Useful function to clear zprezto auto-complete cache
 function compcache_clear() {
     rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}/prezto/zcompdump"
@@ -48,14 +50,7 @@ if [ -d "${PHPENV_ROOT}" ]; then
     eval "$(phpenv init -)"
 fi
 
-# Setup completion for terraform
-if TERRAFORM_PATH=$(rtx which terraform | command -v terraform) ; then
-    autoload -U +X bashcompinit && bashcompinit
-    complete -o nospace -C "$TERRAFORM_PATH" terraform
-fi
-
 # Setup completion for pipx
-
 if PIPX_PATH=$(command -v pipx) ; then
     REAL_PIPX_PATH=$(realpath "$PIPX_PATH")
     PIPX_BIN_DIR=$(dirname "$REAL_PIPX_PATH")
@@ -65,24 +60,42 @@ if PIPX_PATH=$(command -v pipx) ; then
     fi
 fi
 
-# Setup completion for kubectl
-if command -v kubectl > /dev/null ; then
-    source <(kubectl completion zsh)
+# Get a path of a command, load this after rtx
+function cmd_path() {
+    local COMMAND=$1
+    rtx which "$COMMAND" 2>/dev/null || command -v "$COMMAND"
+}
+
+function cmd_exists() {
+    local COMMAND=$1
+    cmd_path $COMMAND 1>/dev/null
+}
+
+# Setup completion for terraform
+if TERRAFORM_PATH=$(cmd_path terraform) ; then
+    autoload -U +X bashcompinit && bashcompinit
+    complete -o nospace -C "$TERRAFORM_PATH" terraform
 fi
 
-# Setup kubeswitch
-KUBESWITCH_DIR=$HOME/.local/apps/kubeswitch/current
-[ -s "$KUBESWITCH_DIR/switch.sh" ] && source "$KUBESWITCH_DIR/switch.sh"
+# Setup completion for kubectl
+if cmd_exists kubectl ; then
+    source <(kubectl completion zsh)
+
+    # Setup kubeswitch
+    KUBESWITCH_DIR=$HOME/.local/apps/kubeswitch/current
+    [ -s "$KUBESWITCH_DIR/switch.sh" ] && source "$KUBESWITCH_DIR/switch.sh"
+fi
 
 # Setup zoxide
-if command -v zoxide > /dev/null ; then
+if cmd_exists zoxide ; then
     eval "$(zoxide init zsh)"
 fi
 
 # Setup direnv
-if command -v direnv > /dev/null ; then
+if cmd_exists direnv ; then
     eval "$(direnv hook zsh)"
 fi
 
+# Load p10k configuration
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
