@@ -16,8 +16,7 @@ function compcache_clear() {
 # Setup dir_colors
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
-# Load rtx early, so rtx's tools can be used for auto-completion
-export RTX_DATA_DIR="$HOME/.local/apps/rtx"
+# Load RTX for PATH modification in interative-shell
 if command -v rtx > /dev/null ; then
     eval "$(rtx activate zsh)"
 fi
@@ -60,13 +59,6 @@ if PIPX_PATH=$(command -v pipx) ; then
     fi
 fi
 
-# Temporarily add RTX shims to path for tooling setup
-old_path=($path)
-path=(
-    "$RTX_DATA_DIR/shims"
-    $path
-)
-
 function cmd_path() {
     local COMMAND=$1
     command -v "$COMMAND"
@@ -101,9 +93,6 @@ fi
 if cmd_exists direnv ; then
     eval "$(direnv hook zsh)"
 fi
-
-# Remove RTX shims from path
-path=($old_path)
 
 # Load p10k configuration
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

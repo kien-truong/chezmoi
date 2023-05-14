@@ -27,6 +27,13 @@ path=(
   $path
 )
 
+# for using rtx tools in non-interactive shell
+export RTX_DATA_DIR="$HOME/.local/apps/rtx"
+path=(
+  $RTX_DATA_DIR/shims
+  $path
+)
+
 {{ if eq .chezmoi.osRelease.id "arch" }}
 # Input env var
 export GTK_IM_MODULE=fcitx
