@@ -60,10 +60,16 @@ if PIPX_PATH=$(command -v pipx) ; then
     fi
 fi
 
-# Get a path of a command, load this after rtx
+# Temporarily add RTX shims to path for tooling setup
+old_path=($path)
+path=(
+    "$RTX_DATA_DIR/shims"
+    $path
+)
+
 function cmd_path() {
     local COMMAND=$1
-    rtx which "$COMMAND" 2>/dev/null || command -v "$COMMAND"
+    command -v "$COMMAND"
 }
 
 function cmd_exists() {
@@ -95,6 +101,9 @@ fi
 if cmd_exists direnv ; then
     eval "$(direnv hook zsh)"
 fi
+
+# Remove RTX shims from path
+path=($old_path)
 
 # Load p10k configuration
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
