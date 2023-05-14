@@ -1,0 +1,7 @@
+{{- if not (stat "/usr/share/zsh/site-functions/_zoxide") }}
+{{- if lookPath "zoxide" }}
+{{ $zoxide_path := output "rtx" "where" "zoxide" }}
+{{ $zoxide_completion := joinPath "bin" "completions" "_zoxide"}}
+{{- include $zoxide_completion | trim }}
+{{- end }}
+{{- end }}
