@@ -2,7 +2,21 @@
 # zprofile extensions
 # This file will be loaded in ~/.zprezto/runcoms/zprofile
 
-# Custom functions search path
+# for go tooling installation
+export GOPATH="$HOME/.local/golang"
+path=(
+  $GOPATH/bin
+  $path
+)
+
+# for using rtx tools in non-interactive shell
+export RTX_DATA_DIR="$HOME/.local/apps/rtx"
+path=(
+  $RTX_DATA_DIR/shims
+  $path
+)
+
+# Custom functions search path, put this after all $path modification
 fpath=(
   $HOME/.zprezto_ext/zfunc
   $HOME/.zprezto_ext/zfunc/*
@@ -19,20 +33,6 @@ else
     sshd|*/sshd) export SESSION_TYPE="ssh";;
   esac
 fi
-
-# for go tooling installation
-export GOPATH="$HOME/.local/golang"
-path=(
-  $GOPATH/bin
-  $path
-)
-
-# for using rtx tools in non-interactive shell
-export RTX_DATA_DIR="$HOME/.local/apps/rtx"
-path=(
-  $RTX_DATA_DIR/shims
-  $path
-)
 
 {{ if eq .chezmoi.osRelease.id "arch" }}
 # Input env var
