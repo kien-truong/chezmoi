@@ -1,0 +1,7 @@
+{{- if not (stat "/usr/share/zsh/site-functions/_bat") }}
+{{- if lookPath "bat" }}
+{{- $tool_path := output "rtx" "where" "bat" | trim }}
+{{- $tool_completion := joinPath $tool_path "autocomplete" "bat.zsh"}}
+{{- include $tool_completion | trim }}
+{{- end }}
+{{- end }}
