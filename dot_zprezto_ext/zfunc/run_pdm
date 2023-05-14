@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if command -v pdm >/dev/null ; then
-    pdm completion zsh 2>/dev/null > _pdm
-fi

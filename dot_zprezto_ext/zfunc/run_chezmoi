@@ -1,3 +1,0 @@
-#!/bin/bash
-
-chezmoi completion zsh 2>/dev/null > _chezmoi
