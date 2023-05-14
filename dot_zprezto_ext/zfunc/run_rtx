@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if command -v rtx >/dev/null ; then
+    rtx completion zsh 2>/dev/null > _rtx
+fi
