@@ -1,0 +1,7 @@
+node = ['18', '16']
+java = ['temurin-17', 'temurin-11']
+sbt = ['1.8']
+mvnd = ['0.9']
+terraform = ['1.4']
+tflint = ['0.46']
+infracost = ['0.10']
