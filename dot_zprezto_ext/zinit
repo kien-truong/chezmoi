@@ -10,7 +10,6 @@ if command -v keychain > /dev/null ; then
     case $file_name in
       id_*)
         if [[ ! $file_name == *.pub ]]; then
-          echo "$file_name"
           SSH_KEYS+=("$file_name")
         fi
         ;;
