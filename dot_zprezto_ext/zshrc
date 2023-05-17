@@ -2,8 +2,18 @@
 # zshrc extensions
 # This file will be loaded in ~/.zprezto/runcoms/zshrc
 
+function cmd_path() {
+    local COMMAND=$1
+    command -v "$COMMAND"
+}
+
+function cmd_exists() {
+    local COMMAND=$1
+    cmd_path $COMMAND 1>/dev/null
+}
+
 # Load ssh keys with keychain
-if command -v keychain > /dev/null ; then
+if cmd_exists keychain > /dev/null ; then
   SSH_KEYS=()
   for f in "$HOME/.ssh"/*
   do
@@ -83,16 +93,6 @@ if PIPX_PATH=$(command -v pipx) ; then
         eval "$($ARG_COMPLETE_BIN pipx)"
     fi
 fi
-
-function cmd_path() {
-    local COMMAND=$1
-    command -v "$COMMAND"
-}
-
-function cmd_exists() {
-    local COMMAND=$1
-    cmd_path $COMMAND 1>/dev/null
-}
 
 # Setup completion for terraform
 if TERRAFORM_PATH=$(cmd_path terraform) ; then
