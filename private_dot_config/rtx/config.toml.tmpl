@@ -1,7 +1,7 @@
 [tools]
 # global tool versions go here
 # you can set these with `rtx use -g`
-{{- $tools_file := joinPath "private_dot_config" "rtx" (printf "%s_%s.part" "rtx_tools" .chezmoi.hostname)}}
+{{- $tools_file := joinPath .chezmoi.sourceDir "private_dot_config" "rtx" (printf "%s_%s.part" "rtx_tools" .chezmoi.hostname)}}
 {{- if stat $tools_file }}
 {{ include $tools_file | trim }}
 {{- end }}
