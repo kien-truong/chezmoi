@@ -1,5 +1,6 @@
 chezmoi = ['latest']
 fzf = ['latest']
+kubectl = ['latest']
 helm = ['latest']
 kustomize = ['latest']
 zoxide = ['latest']
