@@ -12,8 +12,12 @@ end
 
 -- This is where you actually apply your config choices
 
+-- Better tabs
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
+
+-- Smaller fonts
+config.font_size = 10
 
 -- and finally, return the configuration to wezterm
 return config
