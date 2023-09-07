@@ -19,5 +19,12 @@ config.use_fancy_tab_bar = false
 -- Smaller fonts
 config.font_size = 10
 
+-- Cursor style
+config.default_cursor_style = 'BlinkingBar'
+config.animation_fps = 1
+config.cursor_blink_ease_in = 'Constant'
+config.cursor_blink_ease_out = 'Constant'
+config.cursor_blink_rate = 500
+
 -- and finally, return the configuration to wezterm
 return config
