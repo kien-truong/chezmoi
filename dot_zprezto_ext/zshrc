@@ -105,8 +105,10 @@ if cmd_exists kubectl ; then
     source <(kubectl completion zsh)
 
     # Setup kubeswitch
-    KUBESWITCH_DIR=$HOME/.local/apps/kubeswitch/current
-    [ -s "$KUBESWITCH_DIR/switch.sh" ] && source "$KUBESWITCH_DIR/switch.sh"
+    if cmd_exists switcher ; then
+        source <(switcher init zsh)
+        compdef _switcher switch
+    fi
 fi
 
 # Setup zoxide
