@@ -52,3 +52,7 @@ export SSH_ASKPASS="/usr/bin/ksshaskpass"
 # DIFFPROG for pacdiff
 export DIFFPROG="/usr/bin/kdiff3"
 {{ end }}
+
+{{- if and (eq .chezmoi.osRelease.id "ubuntu") (lookPath "kvantummanager") -}}
+export QT_STYLE_OVERRIDE=kvantum
+{{ end }}
