@@ -26,5 +26,8 @@ config.cursor_blink_ease_in = 'Constant'
 config.cursor_blink_ease_out = 'Constant'
 config.cursor_blink_rate = 500
 
+-- Disable ligatures
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+
 -- and finally, return the configuration to wezterm
 return config
