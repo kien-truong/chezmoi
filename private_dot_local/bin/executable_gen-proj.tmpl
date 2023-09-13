@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+TEMPLATE=$1
+DEST=$2
+
+echo "Generate $TEMPLATE project in $DEST directory"
+
+gen_python() {
+    copier copy "{{ .python_copier_repo }}" "${DEST}" \
+        -d author_fullname="{{ .name }}" \
+        -d author_email="{{ .email }}"
+}
+
+case $TEMPLATE in
+
+    python)
+        gen_python
+        ;;
+    *)
+        echo "Unsupported template"
+        ;;
+esac
