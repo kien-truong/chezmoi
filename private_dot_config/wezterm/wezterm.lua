@@ -29,5 +29,8 @@ config.cursor_blink_rate = 500
 -- Disable ligatures
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
+-- Use CTRL instead of SHIFT to bypass mouse reporting
+config.bypass_mouse_reporting_modifiers = 'CTRL'
+
 -- and finally, return the configuration to wezterm
 return config
