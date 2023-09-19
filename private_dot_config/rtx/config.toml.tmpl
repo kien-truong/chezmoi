@@ -5,3 +5,11 @@
 {{- if stat $tools_file }}
 {{ include $tools_file | trim }}
 {{- end }}
+
+[plugins]
+# custom plugins go here
+# you can set these with `rtx plugin install <tool_name> <git_url>`
+{{- $plugins_file := joinPath .chezmoi.sourceDir "private_dot_config" "rtx" (printf "%s_%s.part" "rtx_plugins" .chezmoi.hostname)}}
+{{- if stat $plugins_file }}
+{{ include $plugins_file | trim }}
+{{- end }}
