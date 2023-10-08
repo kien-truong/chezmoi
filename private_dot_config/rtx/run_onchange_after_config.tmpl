@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Add trigger config trust when it change
+# config.toml hash: {{ include (joinPath .chezmoi.homeDir ".config/rtx/config.toml") | sha256sum }}
+
+# Reload systemd user daemon
+rtx trust {{ joinPath .chezmoi.homeDir ".config/rtx/config.toml" }}

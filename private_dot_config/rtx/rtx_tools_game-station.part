@@ -1,4 +1,4 @@
-node = ['18', '16']
+node = ['lts']
 java = ['temurin-17', 'temurin-11']
 sbt = ['1.9']
 mvnd = ['0.9']
