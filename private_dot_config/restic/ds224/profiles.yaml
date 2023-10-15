@@ -1,0 +1,81 @@
+version: "1"
+
+default:
+  repository: "{{ .Env.RESTIC_REPOSITORY }}"
+  password-file: "password.txt"
+  lock: /tmp/restic-dikei.lock
+  status-file: /home/dikei/.tmp/restic-backup-status.json
+
+  backup:
+    verbose: true
+    source:
+    - "/home/dikei"
+    exclude-caches: true
+    exclude:
+    # Huge folder that's not worth backing up
+    - $HOME/Downloads
+    - $HOME/VMs
+    # OpenWRT repository
+    - $HOME/Homelab/openwrt/openwrt-repo/build/openwrt
+    # Android image location
+    - $HOME/.android/avd
+    # Tooling for re-download
+    - $HOME/.local/apps/rtx
+    - $HOME/.local/apps/jetbrain-toolbox
+    # Cache directory
+    - $HOME/.gvfs
+    - $HOME/.dropbox
+    - $HOME/.dropbox-dist
+    - $HOME/.cache
+    - $HOME/.ccache
+    - $HOME/.tmp
+    - $HOME/.ivy2
+    - $HOME/.m2
+    - $HOME/.gradle
+    - $HOME/.sbt
+    - $HOME/.gem
+    - $HOME/.npm
+    - $HOME/.bower
+    - $HOME/.composer
+    - $HOME/.cabal
+    - $HOME/.cargo
+    # Trash bin
+    - $HOME/.local/share/Trash
+    run-before:
+    - notify-send -t 5000 "Start backing up to ds224"
+    - logger "Start backing up to ds224"
+    run-after:
+    - notify-send -t 5000 "Backup to ds224 complete"
+    - logger "Backup to ds224 complete"
+    run-after-fail:
+    - notify-send -t 5000 "Backup to ds224 failed with error ${ERROR_EXIT_CODE}"
+    - logger -p user.error "Backup to ds224 failed with error ${ERROR_EXIT_CODE}"
+    schedule: '*:15' # Every hour in minutes 15
+    schedule-permission: user
+    schedule-priority: background
+    schedule-log: $HOME/.tmp/restic-scheduler.log
+    schedule-lock-mode: default
+    schedule-lock-wait: 15m
+
+  # retention policy
+  retention:
+    before-backup: false
+    after-backup: true
+    prune: true
+    keep-last: 48
+    keep-hourly: 750
+    keep-daily: 180
+    keep-weekly: 60
+    keep-monthly: 24
+    keep-yearly: 4
+
+  # check policy
+  check:
+    read-data: true
+    # check the repository the first day of each month at 3am, or the next time the machine turn on
+    schedule: '*-*-01 08:00:00'
+    schedule-permission: user
+    schedule-priority: background
+    schedule-log: $HOME/.tmp/restic-scheduler.log
+    schedule-lock-mode: default
+    schedule-lock-wait: 15m
