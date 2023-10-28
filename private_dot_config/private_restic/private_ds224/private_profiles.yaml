@@ -10,6 +10,9 @@ default:
     verbose: true
     source:
     - "/home/dikei"
+    group-by: "tags"
+    tag:
+    - linux-station
     exclude-caches: true
     exclude:
     # Huge folder that's not worth backing up
@@ -59,6 +62,7 @@ default:
 
   # retention policy
   retention:
+    group-by: "tags"
     before-backup: false
     after-backup: true
     prune: true
