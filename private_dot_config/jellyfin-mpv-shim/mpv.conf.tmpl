@@ -4,11 +4,14 @@
 profile=gpu-hq
 vo=gpu-next
 gpu-api=vulkan
+video-sync=display-resample
+interpolation=yes
+{{- if .strong_gpu }}
 scale=ewa_lanczos
 dscale=mitchell
 cscale=ewa_lanczos
-interpolation=yes
-video-sync=display-resample
+
+{{- end }}
 
 #Audio output
 ao=pulse
