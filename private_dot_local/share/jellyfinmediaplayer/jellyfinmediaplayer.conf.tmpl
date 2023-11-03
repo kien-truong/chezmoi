@@ -84,7 +84,11 @@
             "force_transcode_hdr": false,
             "force_transcode_hevc": false,
             "force_transcode_hi10p": false,
-            "hardwareDecoding": "enabled",
+{{- if ne (dig "chezmoi" "hostname" "other" .) "linux-station" }}
+            "hardwareDecoding": "copy",
+{{- else }}
+            "hardwareDecoding": "disabled",
+{{- end }}
             "prefer_transcode_to_h265": false,
             "refreshrate.auto_switch": true,
             "refreshrate.avoid_25hz_30hz": true,
