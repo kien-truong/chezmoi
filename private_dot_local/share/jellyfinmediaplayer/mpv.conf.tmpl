@@ -5,7 +5,7 @@ profile=gpu-hq
 vo=gpu-next
 gpu-api=vulkan
 interpolation=yes
-{{- if ne (dig "chezmoi" "hostname" "other" .) "linux-station" }}
+{{- if .strong_gpu }}
 scale=ewa_lanczos
 dscale=mitchell
 cscale=ewa_lanczos

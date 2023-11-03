@@ -10,3 +10,5 @@ python_site_package_dirs = [
 ]
 
 python_copier_repo = "https://github.com/kien-truong/python-copier.git"
+
+strong_gpu = true

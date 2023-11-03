@@ -84,7 +84,7 @@
             "force_transcode_hdr": false,
             "force_transcode_hevc": false,
             "force_transcode_hi10p": false,
-{{- if ne (dig "chezmoi" "hostname" "other" .) "linux-station" }}
+{{- if .strong_gpu }}
             "hardwareDecoding": "copy",
 {{- else }}
             "hardwareDecoding": "disabled",
