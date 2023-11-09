@@ -1,5 +1,5 @@
 node = ['lts']
-java = ['temurin-17', 'temurin-11']
+java = ['temurin-21']
 sbt = ['1.9']
 mvnd = ['0.9']
 terraform = ['1.4']
