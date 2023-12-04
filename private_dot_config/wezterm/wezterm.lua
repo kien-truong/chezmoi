@@ -16,6 +16,9 @@ end
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 
+-- Nerd fonts for powerlevel 10k
+config.font = wezterm.font('CaskaydiaCove Nerd Font Propo')
+
 -- Smaller fonts
 config.font_size = 10
 
