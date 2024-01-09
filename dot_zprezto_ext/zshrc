@@ -51,9 +51,9 @@ function compcache_clear() {
 # Setup dir_colors
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
-# Load RTX for PATH modification in interative-shell
-if command -v rtx > /dev/null ; then
-    eval "$(rtx activate zsh)"
+# Load mise for PATH modification in interative-shell
+if command -v mise > /dev/null ; then
+    eval "$(mise activate zsh)"
 fi
 
 # Setup Mambaforge

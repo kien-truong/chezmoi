@@ -24,6 +24,7 @@ default:
     - $HOME/.android/avd
     # Tooling for re-download
     - $HOME/.local/apps/rtx
+    - $HOME/.local/apps/mise
     - $HOME/.local/apps/jetbrain-toolbox
     # Cache directory
     - $HOME/.gvfs
