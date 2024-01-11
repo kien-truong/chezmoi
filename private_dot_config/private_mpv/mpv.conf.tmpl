@@ -1,16 +1,12 @@
-# Write your default config options here!
-
-#Default render
-profile=gpu-hq
-vo=gpu-next
+{{- if .strong_gpu }}
+profile=high-quality
 gpu-api=vulkan
+{{- else }}
+profile=fast
+{{- end }}
+vo=gpu-next
 interpolation=yes
 video-sync=display-resample
-{{- if .strong_gpu }}
-scale=ewa_lanczos
-dscale=mitchell
-cscale=ewa_lanczos
-{{- end }}
 
 #Audio output
 ao=pulse
