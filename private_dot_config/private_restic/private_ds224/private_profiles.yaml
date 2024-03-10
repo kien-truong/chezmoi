@@ -3,6 +3,7 @@ version: "1"
 default:
   repository: "{{ .Env.RESTIC_REPOSITORY }}"
   password-file: "password.txt"
+  force-inactive-lock: true
   lock: /tmp/restic-dikei.lock
   status-file: /home/dikei/.tmp/restic-backup-status.json
 
