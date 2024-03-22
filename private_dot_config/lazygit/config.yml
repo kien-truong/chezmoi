@@ -1,0 +1,2 @@
+git:
+  allBranchesLogCmd: 'git log --all --oneline --graph --decorate --color=always'
