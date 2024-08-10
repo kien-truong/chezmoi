@@ -44,10 +44,12 @@ else
 fi
 
 {{ if eq .chezmoi.osRelease.id "arch" }}
+{{ if not .wayland }}
 # Input env var
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+{{ end }}
 
 # SSH env var
 export SSH_ASKPASS="/usr/bin/ksshaskpass"
