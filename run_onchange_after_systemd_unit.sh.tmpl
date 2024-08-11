@@ -4,5 +4,7 @@
 # Examles: (remember to remove /**/ from template block)
 # <name>.service hash: {{/* include (joinPath .chezmoi.homeDir ".config/systemd/user/<name>.service") | sha256sum */}}
 
+{{- if .systemd_enabled }}
 # Reload systemd user daemon
 systemctl --user daemon-reload
+{{- end }}
