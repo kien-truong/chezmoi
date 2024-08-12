@@ -1,5 +1,2 @@
-[venv]
-backend = "conda"
-
 [strategy]
 save = "compatible"
