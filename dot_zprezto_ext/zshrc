@@ -130,6 +130,10 @@ if cmd_exists wsl-ssh-agent-relay; then
     export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
 fi
 
+if [[ $(grep microsoft /proc/version) ]]; then
+    export AWS_VAULT_BACKEND=pass
+fi
+
 # Load p10k configuration
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
