@@ -39,7 +39,7 @@ __base:
     keep-monthly: 60
     keep-yearly: 10
   check:
-    read-data: true
+    read-data: false
     schedule-permission: user
     schedule-priority: background
     schedule-log: "{{ .Env.HOME }}/.tmp/{{ .Profile.Name }}/restic-scheduler.log"
