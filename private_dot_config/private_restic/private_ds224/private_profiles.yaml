@@ -4,11 +4,12 @@ default:
   repository: "{{ .Env.RESTIC_REPOSITORY }}"
   password-file: "password.txt"
   force-inactive-lock: true
-  lock: $HOME/.tmp/ds224/restic-dikei.lock
-  status-file: $HOME/.tmp/ds224/restic-backup-status.json
+  lock: "{{ .Env.HOME }}/.tmp/ds224/restic-dikei.lock"
+  status-file: "{{ .Env.HOME }}/.tmp/ds224/restic-backup-status.json"
   backup:
     verbose: true
-    source-base: "$HOME"
+    source:
+      - "{{ .Env.HOME }}"
     group-by: "tags"
     tag:
       - linux-station
@@ -26,7 +27,7 @@ default:
     schedule: "*:15" # Every hour in minutes 15
     schedule-permission: user
     schedule-priority: background
-    schedule-log: $HOME/.tmp/restic-scheduler.log
+    schedule-log: "{{ .Env.HOME }}/.tmp/restic-scheduler.log"
     schedule-lock-mode: default
     schedule-lock-wait: 15m
   retention:
@@ -46,6 +47,6 @@ default:
     schedule: "*-*-01 08:00:00"
     schedule-permission: user
     schedule-priority: background
-    schedule-log: $HOME/.tmp/ds224/restic-scheduler.log
+    schedule-log: "{{ .Env.HOME }}/.tmp/ds224/restic-scheduler.log"
     schedule-lock-mode: default
     schedule-lock-wait: 15m
