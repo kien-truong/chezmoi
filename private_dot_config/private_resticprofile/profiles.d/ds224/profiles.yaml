@@ -1,0 +1,10 @@
+version: "1"
+ds224:
+  inherit: __base
+  backup:
+    schedule: "*:15" # Every hour in minutes 15
+    tag:
+      - linux-station
+  check:
+    # check the repository the 15th of each month at 10:00, or the next time the machine turn on
+    schedule: "*-*-15 10:00:00"

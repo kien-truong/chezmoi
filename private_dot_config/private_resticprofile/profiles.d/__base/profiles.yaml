@@ -1,0 +1,47 @@
+version: "1"
+__base:
+  # Base profile for inheritance
+  base-dir: "{{ .ConfigDir }}/profiles.d/{{ .Profile.Name }}"
+  password-file: "{{ .ConfigDir }}/profiles.d/{{ .Profile.Name }}/.password"
+  force-inactive-lock: true
+  lock: "{{ .Env.HOME }}/.tmp/{{ .Profile.Name }}/restic.lock"
+  status-file: "{{ .Env.HOME }}/.tmp/{{ .Profile.Name }}/restic-backup-status.json"
+  backup:
+    verbose: true
+    source:
+      - "{{ .Env.HOME }}"
+    group-by: "tags"
+    exclude-caches: true
+    exclude-file: "{{ .ConfigDir }}/profiles.d/{{ .Profile.Name }}/excludes.txt"
+    run-before:
+      - notify-send -t 5000 "Start backing up to {{ .Profile.Name }}"
+      - logger "Start backing up to {{ .Profile.Name }}"
+    run-after:
+      - notify-send -t 5000 "Backup to {{ .Profile.Name }} complete"
+      - logger "Backup to {{ .Profile.Name }} complete"
+    run-after-fail:
+      - notify-send -t 5000 "Backup to {{ .Profile.Name }} failed with error ${ERROR_EXIT_CODE}"
+      - logger -p user.error "Backup to {{ .Profile.Name }} failed with error ${ERROR_EXIT_CODE}"
+    schedule-permission: user
+    schedule-priority: background
+    schedule-log: "{{ .Env.HOME }}/.tmp/{{ .Profile.Name }}/restic-scheduler.log"
+    schedule-lock-mode: default
+    schedule-lock-wait: 15m
+  retention:
+    group-by: "tags"
+    before-backup: false
+    after-backup: true
+    prune: true
+    keep-last: 168
+    keep-hourly: 2160
+    keep-daily: 365
+    keep-weekly: 105
+    keep-monthly: 60
+    keep-yearly: 10
+  check:
+    read-data: true
+    schedule-permission: user
+    schedule-priority: background
+    schedule-log: "{{ .Env.HOME }}/.tmp/{{ .Profile.Name }}/restic-scheduler.log"
+    schedule-lock-mode: default
+    schedule-lock-wait: 15m

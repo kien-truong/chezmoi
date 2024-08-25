@@ -1,5 +1,6 @@
 # Popular build directory
 .terraform
+.venv
 node-modules
 
 # Huge folder that's not worth backing up

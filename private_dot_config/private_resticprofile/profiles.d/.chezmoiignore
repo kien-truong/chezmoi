@@ -1,3 +1,4 @@
 {{- if ne (dig "chezmoi" "hostname" "other" .) "linux-station" }}
 ds224
+gcs
 {{- end }}

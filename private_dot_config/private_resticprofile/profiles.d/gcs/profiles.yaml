@@ -1,0 +1,13 @@
+version: "1"
+gcs:
+  inherit: __base
+  env:
+    GOOGLE_APPLICATION_CREDENTIALS: .auth/kien-truong-backup-storage-8abe647d375c.json
+  repository: "gs:kt-backup-linux-station-restic:/"
+  backup:
+    schedule: "*:45" # Every hour in minutes 45
+    tag:
+      - linux-station
+  check:
+    # check the repository the first day of each month at 10:00, or the next time the machine turn on
+    schedule: "*-*-01 10:00:00"
