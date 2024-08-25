@@ -1,0 +1,46 @@
+# Popular build directory
+.terraform
+node-modules
+
+# Huge folder that's not worth backing up
+$HOME/Downloads
+$HOME/VMs
+
+# OpenWRT repository
+$HOME/Homelab/openwrt/openwrt-repo/build/openwrt
+
+# Android image location
+$HOME/.android/avd
+
+# Tooling for re-download
+$HOME/.local/apps/rtx
+$HOME/.local/apps/mise
+$HOME/.local/apps/jetbrain-toolbox
+
+# Cache directory
+$HOME/.gvfs
+$HOME/.dropbox
+$HOME/.dropbox-dist
+$HOME/.cache
+$HOME/.ccache
+$HOME/.tmp
+$HOME/.ivy2
+$HOME/.m2
+$HOME/.gradle
+$HOME/.sbt
+$HOME/.gem
+$HOME/.npm
+$HOME/.bower
+$HOME/.composer
+$HOME/.cabal
+$HOME/.cargo
+
+# Trash bin
+$HOME/.local/share/Trash
+
+# Big config with separate config directory
+$HOME/.config/microsoft-edge-beta
+$HOME/.config/microsoft-edge-dev
+$HOME/.config/microsoft-edge
+$HOME/.config/Code
+$HOME/.config/google-chrome-beta
