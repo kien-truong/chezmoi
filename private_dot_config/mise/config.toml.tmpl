@@ -9,7 +9,7 @@
 [settings]
 legacy_version_file = false
 
-[plugins]
+[alias]
 # custom plugins go here
 # you can set these with `mise plugin install <tool_name> <git_url>`
 {{- $plugins_file := joinPath .chezmoi.sourceDir "private_dot_config" "mise" (printf "%s_%s.part" "mise_plugins" .chezmoi.hostname)}}
