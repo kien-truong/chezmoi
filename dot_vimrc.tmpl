@@ -270,10 +270,10 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 let g:powerline_pycmd="py3"
-" Add global python site-packages so powerline is usable inside virtualenv
+set pythonthreehome=/usr
 {{- range .python_site_package_dirs }}
 {{- if stat (.) }}
-python3 import sys;sys.path.append({{ . | quote }})
+python3 sys.path.insert(0, {{ . | quote }})
 {{- end }}
 {{- end }}
 
