@@ -103,12 +103,13 @@ fi
 # Setup completion for kubectl
 if cmd_exists kubectl ; then
     source <(kubectl completion zsh)
+fi
 
-    # Setup kubeswitch
-    if cmd_exists switcher ; then
-        source <(switcher init zsh)
-        compdef _switcher switch
-    fi
+# Setup kubeswitch
+if cmd_exists switcher ; then
+    source <(switcher init zsh)
+    source <(switch completion zsh)
+    alias kubeswitch=switch
 fi
 
 # Setup zoxide
