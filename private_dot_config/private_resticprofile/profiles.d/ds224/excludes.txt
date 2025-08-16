@@ -45,3 +45,6 @@ $HOME/.config/microsoft-edge-dev
 $HOME/.config/microsoft-edge
 $HOME/.config/Code
 $HOME/.config/google-chrome-beta
+
+# Third party sync service
+$HOME/Sync
