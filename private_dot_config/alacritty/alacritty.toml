@@ -1,0 +1,10 @@
+[window]
+decorations = "none"
+
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+blink_timeout = 0
+blink_interval = 500
+
+[font]
+normal = { family = "CaskaydiaCove NFP", style = "Regular" }
