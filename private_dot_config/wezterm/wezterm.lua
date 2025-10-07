@@ -17,7 +17,7 @@ config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 
 -- Nerd fonts for powerlevel 10k
-config.font = wezterm.font('CaskaydiaCove NFP', {weight=350})
+config.font = wezterm.font('CaskaydiaCove NFP', {weight="DemiLight"})
 
 -- Smaller fonts
 config.font_size = 10
