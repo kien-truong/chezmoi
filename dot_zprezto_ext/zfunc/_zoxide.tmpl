@@ -1,7 +1,7 @@
 {{- if not (stat "/usr/share/zsh/site-functions/_zoxide") }}
 {{- if lookPath "zoxide" }}
 {{- $tool_path := output "mise" "where" "zoxide" | trim }}
-{{- $tool_completion := joinPath $tool_path "bin" "completions" "_zoxide"}}
+{{- $tool_completion := joinPath $tool_path "completions" "_zoxide"}}
 {{- include $tool_completion | trim }}
 {{- end }}
 {{- end }}
