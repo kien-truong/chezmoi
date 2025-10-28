@@ -62,3 +62,6 @@ export DIFFPROG="/usr/bin/kdiff3"
 {{- if and (eq .chezmoi.osRelease.id "ubuntu") (lookPath "kvantummanager") -}}
 export QT_STYLE_OVERRIDE=kvantum
 {{ end }}
+
+# Terragrunt run protection
+export TG_PARALLELISM=4
