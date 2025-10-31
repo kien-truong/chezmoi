@@ -1,7 +1,13 @@
-# Popular build directory
+# Language specific exclude dir
+## Terraform
 .terraform
+.terragrunt-cache
+
+## Python
 .venv
-node-modules
+
+## NodeJS
+node_modules
 
 # Huge folder that's not worth backing up
 $HOME/Downloads
@@ -19,10 +25,10 @@ $HOME/.local/apps/mise
 $HOME/.local/apps/jetbrain-toolbox
 
 # Cache directory
+.cache
 $HOME/.gvfs
 $HOME/.dropbox
 $HOME/.dropbox-dist
-$HOME/.cache
 $HOME/.ccache
 $HOME/.tmp
 $HOME/.ivy2
