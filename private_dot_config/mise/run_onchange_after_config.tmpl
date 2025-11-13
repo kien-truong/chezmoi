@@ -3,5 +3,6 @@
 # Add trigger config trust when it change
 # config.toml hash: {{ include (joinPath .chezmoi.homeDir ".config/mise/config.toml") | sha256sum }}
 
-# Reload systemd user daemon
+# Trust new mise config and install
 mise trust {{ joinPath .chezmoi.homeDir ".config/mise/config.toml" }}
+mise install
