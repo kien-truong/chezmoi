@@ -1,36 +1,41 @@
 [".vim/pack/themes/opt/solarized8"]
     type = "git-repo"
     url = "https://github.com/lifepillar/vim-solarized8.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "24h"
 
 [".tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "24h"
 
 [".tmux/plugins/tmux-continuum"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-continuum.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "24h"
 
 [".tmux/plugins/tmux-resurrect"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-resurrect.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "24h"
 
 [".tmux/plugins/tmux-sensible"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-sensible.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "24h"
 
 [".tmux/plugins/tmux-yank"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-yank.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "24h"
+
+[".zprezto"]
+    type = "git-repo"
+    url = "git@gitlab.com:kien-truong/prezto-config.git"
+    refreshPeriod = "24h"
 
 {{ if or (lookPath "conda") (lookPath "mamba") }}
 [".zsh_ext/completions_modules/conda-zsh-completion"]
     type = "git-repo"
     url = "https://github.com/conda-incubator/conda-zsh-completion.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "24h"
 {{ end }}
