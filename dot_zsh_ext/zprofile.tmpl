@@ -25,13 +25,6 @@ path=(
   $path
 )
 
-# Custom functions search path, put this after all $path modification
-fpath=(
-  $HOME/.zsh_ext/completions
-  $HOME/.zsh_ext/completions_modules/*
-  $fpath
-)
-
 # For detection of session type
 export SESSION_TYPE="local"
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
