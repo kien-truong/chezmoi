@@ -123,7 +123,7 @@ if cmd_exists direnv ; then
 fi
 
 if cmd_exists lsd; then
-    alias ls="lsd"
+    alias ls="lsd -v"
 fi
 
 if cmd_exists wsl-ssh-agent-relay; then
