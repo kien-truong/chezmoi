@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Update submodule when .zprezto is updated
+# {{ output "git" "-C" (joinPath .chezmoi.homeDir ".zprezto") "rev-parse" "HEAD" }}
+cd $HOME/.zprezto
+git submodule sync --recursive
+git submodule update --init --recursive
