@@ -29,7 +29,7 @@
     refreshPeriod = "168h"
 
 {{ if or (lookPath "conda") (lookPath "mamba") }}
-[".zprezto_ext/zfunc/conda-zsh-completion"]
+[".zsh_ext/completions_modules/conda-zsh-completion"]
     type = "git-repo"
     url = "https://github.com/conda-incubator/conda-zsh-completion.git"
     refreshPeriod = "168h"
