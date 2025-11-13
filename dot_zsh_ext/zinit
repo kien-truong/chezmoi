@@ -3,3 +3,13 @@
 
 # Alias ls first, because zprezto also add many aliases for ls
 alias ls="ls -v"
+
+# Completion setup
+fpath=(
+  $HOME/.zsh_ext/completions
+  $fpath
+)
+
+for module in $HOME/.zsh_ext/completions_modules/*(N); do
+  fpath=($module $fpath)
+done

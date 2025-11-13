@@ -100,15 +100,9 @@ if TERRAFORM_PATH=$(cmd_path terraform) ; then
     complete -o nospace -C "$TERRAFORM_PATH" terraform
 fi
 
-# Setup completion for kubectl
-if cmd_exists kubectl ; then
-    source <(kubectl completion zsh)
-fi
-
 # Setup kubeswitch
 if cmd_exists switcher ; then
     source <(switcher init zsh)
-    source <(switch completion zsh)
     alias kubeswitch=switch
 fi
 
@@ -134,16 +128,6 @@ fi
 if [[ $(grep microsoft /proc/version) ]]; then
     export AWS_VAULT_BACKEND=pass
 fi
-
-# Completion setup
-fpath=(
-  $HOME/.zsh_ext/completions
-  $fpath
-)
-
-for module in $HOME/.zsh_ext/completions_modules/*(N); do
-  fpath=($module $fpath)
-done
 
 # Load p10k configuration
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
