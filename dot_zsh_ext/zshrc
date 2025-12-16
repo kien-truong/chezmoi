@@ -13,7 +13,7 @@ function cmd_exists() {
 }
 
 # Load ssh keys with keychain
-if cmd_exists keychain > /dev/null ; then
+if cmd_exists keychain ; then
   SSH_KEYS=()
   for f in "$HOME/.ssh"/*
   do
@@ -52,7 +52,7 @@ function compcache_clear() {
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
 # Load mise for PATH modification in interative-shell
-if command -v mise > /dev/null ; then
+if cmd_exists mise ; then
     eval "$(mise activate zsh)"
 fi
 
@@ -134,3 +134,7 @@ fi
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(starship init zsh)"
+
+if cmd_exists assume; then
+    alias assume="source $(cmd_path assume)"
+fi
