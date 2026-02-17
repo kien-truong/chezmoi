@@ -1,5 +1,5 @@
 awscli = ['latest']
-java = ['temurin-21', 'semeru-openj9-21']
+java = ['temurin-25', 'semeru-openj9-25']
 maven = ['3.9.5']
 node = ['lts']
 sbt = ['1']
