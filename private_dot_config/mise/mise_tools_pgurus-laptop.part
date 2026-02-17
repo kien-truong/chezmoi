@@ -1,5 +1,4 @@
 actionlint = ['latest']
-aws-vault = ['latest']
 awscli = ['latest']
 bat = ['latest']
 chezmoi = ['latest']
