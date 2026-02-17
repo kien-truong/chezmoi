@@ -1,8 +1,0 @@
-DefaultBrowser = "EDGE"
-CustomBrowserPath = "/usr/bin/microsoft-edge-beta"
-CustomSSOBrowserPath = ""
-Ordering = ""
-ExportCredentialSuffix = ""
-CredentialProcessAutoLogin = true
-
-[Keyring]

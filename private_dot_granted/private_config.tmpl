@@ -1,0 +1,19 @@
+{{ if .granted_pass_backend }}
+DefaultBrowser = "STDOUT"
+CustomBrowserPath = ""
+CustomSSOBrowserPath = ""
+LastCheckForUpdates = 3
+Ordering = ""
+ExportCredentialSuffix = ""
+[Keyring]
+  Backend = "pass"
+{{ else }}
+DefaultBrowser = "EDGE"
+CustomBrowserPath = "/usr/bin/microsoft-edge-beta"
+CustomSSOBrowserPath = ""
+Ordering = ""
+ExportCredentialSuffix = ""
+CredentialProcessAutoLogin = true
+
+[Keyring]
+{{ end }}

@@ -18,3 +18,5 @@ strong_gpu = true
 wayland = true
 
 systemd_enabled = true
+
+granted_pass_backend = false
