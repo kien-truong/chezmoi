@@ -48,6 +48,11 @@ function compcache_clear() {
     rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}/prezto/zcompdump"
 }
 
+# Function to clear terragrunt cache
+function tgcache_clear() {
+    find ./ -type d -name ".terragrunt-cache" -exec rm -rf {} +
+}
+
 # Setup dir_colors
 [ -s "$HOME/.dir_colors" ] && eval `dircolors $HOME/.dir_colors`
 
