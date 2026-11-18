@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ZPREZTODIR="${ZPREZTODIR:-"$HOME/.zprezto"}"
+
+cd "$ZPREZTODIR"
+
+git pull upstream master
+
+git submodule sync --recursive
+
+git submodule update --init --recursive
